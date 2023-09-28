@@ -6,11 +6,10 @@
   box-sizing: border-box;
 }
 
+:root {
+  --side-width: 114px;
+}
+
 body {
-  text-align: center;
-  font-family: 'Poppins';
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: normal;
+  font-family: "Poppins";
 }

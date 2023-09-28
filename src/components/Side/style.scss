@@ -1,6 +1,7 @@
 .side {
-  width: 114px;
+  width: var(--side-width);
   position: fixed;
+  z-index: 10;
   // there is a slight offset in the left in figma
   left: 1.5px;
   top: 0;
