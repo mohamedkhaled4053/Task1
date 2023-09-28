@@ -7,11 +7,9 @@ const Side = () => {
   return (
     <div className="side">
       <Icon name="menu" />
-      <ImgIcon name="home" className="home"/>
-      <ImgIcon name="note" className="note"/>
-      <div className="name">
-        NT
-      </div>
+      <ImgIcon name="home" className="home" width="35px" />
+      <ImgIcon name="note" className="note" width="33px" />
+      <div className="name">NT</div>
     </div>
   );
 };
