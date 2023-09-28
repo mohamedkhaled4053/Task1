@@ -20,9 +20,6 @@
       }
       &.upload .card-body {
         padding: 60px 40px;
-      }
-      .card-body {
-        padding: 38px 48px 52px 30px;
         .ant-upload-drag {
           background-color: white;
           border-radius: 5px;
@@ -40,6 +37,104 @@
         .ant-upload-btn {
           padding-top: 60px;
           padding-bottom: 60px;
+        }
+      }
+      .card-body {
+        padding: 0px 48px 52px 30px;
+        
+        .info,
+        .question {
+          height: 85px;
+          display: flex;
+          align-items: center;
+          &:not(:last-child) {
+            border-bottom: 1px solid #c4c4c4;
+          }
+
+          .title {
+            flex: 2;
+            font-size: 20px;
+            font-weight: 600;
+          }
+        }
+
+        .info {
+          .ant-form-item {
+            flex: 1;
+            margin: 0;
+            display: flex;
+            justify-content: end;
+            .ant-checkbox-wrapper {
+              &:hover {
+                .ant-checkbox-inner {
+                  border-color: #087b2f;
+                }
+              }
+              .ant-checkbox-inner {
+                &::after {
+                  content: "";
+                  background-image: url("../../assets/svgs/true.svg");
+                  width: 100%;
+                  height: 100%;
+                  transform: unset;
+                  border: none;
+                  background-position: center;
+                  top: 0;
+                  inset-inline-start: unset;
+                  opacity: 0;
+                }
+              }
+              .ant-checkbox {
+                &.ant-checkbox-checked {
+                  .ant-checkbox-inner {
+                    border-color: #087b2f;
+                    background: #087b2f;
+                    &::after {
+                      opacity: 1;
+                    }
+                  }
+                }
+              }
+            }
+
+            .ant-switch {
+              & + label {
+                margin-left: 16px;
+                color: #666;
+                font-size: 16px;
+              }
+              direction: rtl;
+              .ant-switch-handle::before {
+                background-color: #f4f4f4;
+                border: 1px solid #cccccc;
+                box-shadow: none;
+                margin: 1px;
+              }
+              .ant-switch-inner {
+                background: white;
+                transition: 0.2s;
+                border: 1px solid #cccccc;
+                box-shadow: none;
+              }
+              &.ant-switch-checked {
+                .ant-switch-handle::before {
+                  background-color: white;
+                  border: none;
+                }
+                .ant-switch-inner {
+                  background: #087b2f;
+                }
+              }
+            }
+          }
+        }
+
+        .add-question {
+          display: flex;
+          gap: 20px;
+          font-size: 15px;
+          font-weight: 600;
+          letter-spacing: -0.09px;
         }
       }
     }
