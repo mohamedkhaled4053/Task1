@@ -94,3 +94,17 @@ export let mockData: ApplicationForm = {
     },
   },
 };
+
+export const questionTypes = [
+  "Paragraph",
+  "Short answer",
+  "Yes/No",
+  "Dropdown",
+  "Multiple choice",
+  "Date",
+  "Number",
+  "File upload",
+  "Video question",
+] as const;
+
+export type questionType = (typeof questionTypes)[number];
