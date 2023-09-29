@@ -15,8 +15,9 @@ const Navbar = () => {
   return (
     <div className="nav">
       <div className="nav-content">
-        {navTitles.map((title) => (
+        {navTitles.map((title, index) => (
           <div
+            key={title + index}
             className={`nav-title ${title === activeNavTitle ? "active" : ""}`}
             onClick={() => setActiveNavTitle(title)}
           >

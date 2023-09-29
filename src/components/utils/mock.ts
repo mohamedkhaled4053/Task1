@@ -3,8 +3,8 @@ interface InternalAndShow {
   show: boolean;
 }
 interface MandatoryAndShow {
-  mandatory: true;
-  show: true;
+  mandatory: boolean;
+  show: boolean;
 }
 
 export interface ApplicationForm {
@@ -45,9 +45,9 @@ export let mockData: ApplicationForm = {
       personalInformation: {
         firstName: { internalUse: false, show: true },
         lastName: { internalUse: false, show: true },
-        emailId: { internalUse: false, show: true },
+        emailId: { internalUse: true, show: false },
         phoneNumber: { internalUse: false, show: true },
-        nationality: { internalUse: false, show: true },
+        nationality: { internalUse: false, show: false },
         currentResidence: { internalUse: false, show: true },
         idNumber: { internalUse: false, show: true },
         dateOfBirth: { internalUse: false, show: true },
@@ -66,8 +66,8 @@ export let mockData: ApplicationForm = {
       },
       profile: {
         education: { mandatory: true, show: true },
-        experience: { mandatory: true, show: true },
-        resume: { mandatory: true, show: true },
+        experience: { mandatory: false, show: true },
+        resume: { mandatory: true, show: false },
         profileQuestions: [
           {
             id: "497f6eca-6276-4993-bfeb-53cbbbba6f08",
