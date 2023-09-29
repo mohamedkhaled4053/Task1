@@ -1,44 +1,20 @@
-interface InternalAndShow {
-  internalUse: boolean;
-  show: boolean;
-}
-interface MandatoryAndShow {
-  mandatory: boolean;
-  show: boolean;
-}
+import { ApplicationForm } from "./types";
 
-export interface ApplicationForm {
-  data: {
-    id: string;
-    type: string;
-    attributes: {
-      coverImage: string;
-      personalInformation: {
-        firstName: InternalAndShow;
-        lastName: InternalAndShow;
-        emailId: InternalAndShow;
-        phoneNumber: InternalAndShow;
-        nationality: InternalAndShow;
-        currentResidence: InternalAndShow;
-        idNumber: InternalAndShow;
-        dateOfBirth: InternalAndShow;
-        gender: InternalAndShow;
-        personalQuestions: any[];
-      };
-      profile: {
-        education: MandatoryAndShow;
-        experience: MandatoryAndShow;
-        resume: MandatoryAndShow;
-        profileQuestions: any[];
-      };
-      customisedQuestions: any[];
-    };
-  };
-}
+export const questionTypes = [
+  "Paragraph",
+  "Short answer",
+  "Yes/No",
+  "Dropdown",
+  "Multiple choice",
+  "Date",
+  "Number",
+  "File upload",
+  "Video question",
+] as const;
 
 export let mockData: ApplicationForm = {
   data: {
-    id: "497f6eca-6276-4993-bfeb-53cbbbba6f08",
+    id: "497f6eca-6276-4993-bfeb-53cbbba6f08",
     type: "applicationForm",
     attributes: {
       coverImage: "http://example.com",
@@ -54,7 +30,43 @@ export let mockData: ApplicationForm = {
         gender: { internalUse: false, show: true },
         personalQuestions: [
           {
-            id: "497f6eca-6276-4993-bfeb-53cbbbba6f08",
+            id: "497f6eca-276-4993-bfeb-53cbbbba6f08",
+            type: "Paragraph",
+            question: "string",
+            choices: ["string"],
+            maxChoice: 0,
+            disqualify: false,
+            other: false,
+          },
+          {
+            id: "497f6eca-276-4993-bfeb-53cbbbba6f08",
+            type: "Paragraph",
+            question: "string",
+            choices: ["string"],
+            maxChoice: 0,
+            disqualify: false,
+            other: false,
+          },
+          {
+            id: "497f6eca-276-4993-bfeb-53cbbbba6f08",
+            type: "Paragraph",
+            question: "string",
+            choices: ["string"],
+            maxChoice: 0,
+            disqualify: false,
+            other: false,
+          },
+          {
+            id: "497f6eca-276-4993-bfeb-53cbbbba6f08",
+            type: "Paragraph",
+            question: "string",
+            choices: ["string"],
+            maxChoice: 0,
+            disqualify: false,
+            other: false,
+          },
+          {
+            id: "497f6eca-276-4993-bfeb-53cbbbba6f08",
             type: "Paragraph",
             question: "string",
             choices: ["string"],
@@ -70,7 +82,52 @@ export let mockData: ApplicationForm = {
         resume: { mandatory: true, show: false },
         profileQuestions: [
           {
-            id: "497f6eca-6276-4993-bfeb-53cbbbba6f08",
+            id: "497f6eca-6276-4993-bfeb-53cbbbba608",
+            type: "Paragraph",
+            question: "string",
+            choices: ["string"],
+            maxChoice: 0,
+            disqualify: false,
+            other: false,
+          },
+          {
+            id: "497f6eca-6276-4993-bfebhfealkjds-53cbbbba608",
+            type: "Paragraph",
+            question: "string",
+            choices: ["string"],
+            maxChoice: 0,
+            disqualify: false,
+            other: false,
+          },
+          {
+            id: "497f6eca-dfadslkdash-4993-bfeb-53cbbbba608",
+            type: "Paragraph",
+            question: "string",
+            choices: ["string"],
+            maxChoice: 0,
+            disqualify: false,
+            other: false,
+          },
+          {
+            id: "497f6eca-627bjnlkgityyk6-4993-bfeb-53cbbbba608",
+            type: "Paragraph",
+            question: "string",
+            choices: ["string"],
+            maxChoice: 0,
+            disqualify: false,
+            other: false,
+          },
+          {
+            id: "497f6eca-6276-ml;ij4993-bfeb-53cbbbba608",
+            type: "Paragraph",
+            question: "string",
+            choices: ["string"],
+            maxChoice: 0,
+            disqualify: false,
+            other: false,
+          },
+          {
+            id: "497f6eca-6276-4993-bfkjkeb-53cbbbba608",
             type: "Paragraph",
             question: "string",
             choices: ["string"],
@@ -90,21 +147,43 @@ export let mockData: ApplicationForm = {
           disqualify: false,
           other: false,
         },
+        {
+          id: "497f6eca-6276-4993-bfeb-53cbbbba6f08",
+          type: "Paragraph",
+          question: "string",
+          choices: ["string"],
+          maxChoice: 0,
+          disqualify: false,
+          other: false,
+        },
+        {
+          id: "497f6ecafdsafdsa-6276-4993-bfeb-53cbbbba6f08",
+          type: "Paragraph",
+          question: "string",
+          choices: ["string"],
+          maxChoice: 0,
+          disqualify: false,
+          other: false,
+        },
+        {
+          id: "497f6eca-6276-49gfdsgfsd93-bfeb-53cbbbba6f08",
+          type: "Paragraph",
+          question: "string",
+          choices: ["string"],
+          maxChoice: 0,
+          disqualify: false,
+          other: false,
+        },
+        {
+          id: "497f6eca-6276-4993-bfeb-53cbbbbadsafdsa6f08",
+          type: "Paragraph",
+          question: "string",
+          choices: ["string"],
+          maxChoice: 0,
+          disqualify: false,
+          other: false,
+        },
       ],
     },
   },
 };
-
-export const questionTypes = [
-  "Paragraph",
-  "Short answer",
-  "Yes/No",
-  "Dropdown",
-  "Multiple choice",
-  "Date",
-  "Number",
-  "File upload",
-  "Video question",
-] as const;
-
-export type questionType = (typeof questionTypes)[number];

@@ -1,11 +1,12 @@
 import "./style.scss";
 import Navbar from "../Navbar/Navbar";
-import { ApplicationForm, mockData, questionTypes } from "../utils/mock";
+import { mockData, questionTypes } from "../utils/mock";
 import { useState } from "react";
 import { Form, Input, Select } from "antd";
 import { ImgIcon } from "../Icon/ImgIcon";
 import ApplicationCard from "../ApplicationCard/ApplicationCard";
 import { Icon } from "../Icon/Icon";
+import { ApplicationForm } from "../utils/types";
 
 const Main = () => {
   let [FormData, setFormData] = useState<ApplicationForm>(mockData);

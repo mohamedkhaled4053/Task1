@@ -3,7 +3,7 @@ import "./style.scss";
 import { Form, Checkbox, Switch, Upload } from "antd";
 import { Icon } from "../Icon/Icon";
 import { ImgIcon } from "../Icon/ImgIcon";
-import { ApplicationForm } from "../utils/mock";
+import { ApplicationForm } from "../utils/types";
 
 type Props = {
   header: string;
