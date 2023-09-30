@@ -4,6 +4,7 @@ import { ImgIcon } from "../Icon/ImgIcon";
 import { Icon } from "../Icon/Icon";
 import { questionTypes } from "../../utils/mock";
 import { applicationQuestion } from "../../utils/types";
+import './style.scss'
 
 type Props = {
   field: FormListFieldData;

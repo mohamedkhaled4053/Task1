@@ -83,10 +83,7 @@ const ApplicationCard = ({
                 />
               ))}
 
-              <div
-                className="add-question"
-                onClick={() => add()}
-              >
+              <div className="add-question" onClick={() => add()}>
                 <Icon name="add" width={25} /> Add a question
               </div>
             </>

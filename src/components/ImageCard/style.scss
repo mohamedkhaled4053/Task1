@@ -1,0 +1,42 @@
+.main .ant-form .card.upload {
+  .card-body {
+    padding: 60px 40px;
+    .ant-upload-drag {
+      background-color: white;
+      border-radius: 5px;
+      border: 1px dashed #000;
+    }
+    .ant-upload-drag-icon {
+      margin: 0;
+    }
+    .ant-upload-text {
+      font-weight: 600;
+    }
+    .ant-upload-hint {
+      color: #979797;
+    }
+    .ant-upload-btn {
+      padding-top: 60px;
+      padding-bottom: 60px;
+    }
+  }
+
+  img.cover-image {
+    width: 100%;
+    height: 100%;
+  }
+  img.cover-image {
+    width: 100%;
+    height: 100%;
+  }
+  .cover-image-delete {
+    padding: 30px;
+    color: #a80000;
+    font-size: 15px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+  }
+}

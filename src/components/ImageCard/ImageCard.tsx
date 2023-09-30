@@ -2,6 +2,7 @@ import React from "react";
 import { Form, Upload } from "antd";
 import { ImgIcon } from "../Icon/ImgIcon";
 import { Icon } from "../Icon/Icon";
+import './style.scss'
 
 type Props = {
   coverImage: string;
