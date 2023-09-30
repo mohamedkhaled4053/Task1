@@ -11,7 +11,7 @@ export interface MandatoryAndShow {
 
 export type questionType = (typeof questionTypes)[number];
 
-type applicationQuestion = {
+export type applicationQuestion = {
   id: string;
   type: questionType;
   question: string;

@@ -1,14 +1,14 @@
 import React from "react";
 import "./style.scss";
-import { Form, Checkbox, Switch, Upload } from "antd";
+import { Form, Checkbox, Switch } from "antd";
 import { Icon } from "../Icon/Icon";
-import { ImgIcon } from "../Icon/ImgIcon";
 import { ApplicationForm } from "../utils/types";
+import Question from "../Question/Question";
 
 type Props = {
   header: string;
   data: ApplicationForm["data"]["attributes"];
-  attribute: keyof ApplicationForm["data"]["attributes"];
+  attribute: Exclude<keyof ApplicationForm["data"]["attributes"], "coverImage">;
   checkBoxLabel?: "mandatory" | "internalUse";
 };
 
@@ -18,69 +18,78 @@ const ApplicationCard = ({
   attribute,
   checkBoxLabel = "internalUse",
 }: Props) => {
-  if (attribute === "coverImage") {
-    return (
-      <div className="card upload">
-        <div className="card-header">Upload cover image</div>
-        <div className="card-body">
-          {data[attribute].includes("example") && (
-            <Form.Item name="coverImage">
-              <Upload.Dragger
-                name="file"
-                multiple={true}
-                action="http://example.com/"
-                fileList={[]}
-              >
-                <p className="ant-upload-drag-icon">
-                  <ImgIcon name="upload" width="33px" />
-                </p>
-                <p className="ant-upload-text">Upload cover image</p>
-                <p className="ant-upload-hint">
-                  16:9 ratio is recommended. Max image size 1mb
-                </p>
-              </Upload.Dragger>
-            </Form.Item>
-          )}
-        </div>
-      </div>
-    );
+  let questionFormItemName: string[];
+  switch (attribute) {
+    case "personalInformation":
+      questionFormItemName = [attribute, "personalQuestions"];
+      break;
+    case "profile":
+      questionFormItemName = [attribute, "profileQuestions"];
+      break;
+    case "customisedQuestions":
+      questionFormItemName = ["customisedQuestions"];
+      break;
   }
 
   return (
     <div className="card">
       <div className="card-header">{header}</div>
       <div className="card-body">
-        <div className="infos">
-          {Object.keys(data[attribute]).map((info) => {
-            if (info.includes("Questions")) {
-              return null;
-            }
-            return (
-              <div className="info" key={info}>
-                <p className="title">{info}</p>
-                <Form.Item
-                  valuePropName="checked"
-                  name={[attribute, info, checkBoxLabel]}
-                >
-                  <Checkbox>
-                    {checkBoxLabel === "internalUse" ? "internal" : "mandatory"}
-                  </Checkbox>
-                </Form.Item>
-                <Form.Item
-                  valuePropName="checked"
-                  name={[attribute, info, "show"]}
-                >
-                  <Switch id={info + "show"} />
-                </Form.Item>
-                <label htmlFor={info + "show"}>Hide</label>
-              </div>
-            );
-          })}
-        </div>
+        {/* infos */}
+        {attribute !== "customisedQuestions" && (
+          <div className="infos">
+            {Object.keys(data[attribute]).map((info) => {
+              if (info.includes("Questions")) {
+                return null;
+              }
+              return (
+                <div className="info" key={info}>
+                  <p className="title">{info}</p>
 
-        <div className="add-question">
-          <Icon name="add" width={25} /> Add a question
-        </div>
+                  <Form.Item
+                    valuePropName="checked"
+                    name={[attribute, info, checkBoxLabel]}
+                  >
+                    <Checkbox>
+                      {checkBoxLabel === "internalUse"
+                        ? "internal"
+                        : "mandatory"}
+                    </Checkbox>
+                  </Form.Item>
+
+                  <Form.Item
+                    valuePropName="checked"
+                    name={[attribute, info, "show"]}
+                  >
+                    <Switch id={info + "show"} />
+                  </Form.Item>
+                  <label htmlFor={info + "show"}>Hide</label>
+                </div>
+              );
+            })}
+          </div>
+        )}
+        
+        {/* questions */}
+        <Form.List name={questionFormItemName}>
+          {(fields, { add, remove }) => (
+            <>
+              {fields.map((field) => (
+                <Question
+                  key={field.key}
+                  field={field}
+                  name={questionFormItemName}
+                />
+              ))}
+
+              <Form.Item>
+                <div className="add-question">
+                  <Icon name="add" width={25} /> Add a question
+                </div>
+              </Form.Item>
+            </>
+          )}
+        </Form.List>
       </div>
     </div>
   );

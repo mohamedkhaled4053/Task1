@@ -38,8 +38,11 @@
     .question {
       display: flex;
       align-items: center;
-      &:not(:last-child) {
+      
         border-bottom: 1px solid #c4c4c4;
+      
+      &:has(+ .add-question){
+        border-bottom: none;
       }
 
       .title {
