@@ -38,10 +38,10 @@
     .question {
       display: flex;
       align-items: center;
-      
-        border-bottom: 1px solid #c4c4c4;
-      
-      &:has(+ .add-question){
+
+      border-bottom: 1px solid #c4c4c4;
+
+      &:has(+ .add-question) {
         border-bottom: none;
       }
 
@@ -168,7 +168,8 @@
               }
 
               .ant-select,
-              .ant-input {
+              .ant-input,
+              .ant-input-number {
                 height: 68px;
               }
 
@@ -202,10 +203,19 @@
                   background-color: #087b2f;
                 }
               }
+              .ant-input-number {
+                width: 100%;
+                padding: 17px 5px;
+                border-color: black;
+                box-shadow: none;
+                .ant-input-number-handler-wrap{
+                  display: none;
+                }
+              }
 
               textarea {
                 display: flex;
-                padding: 22px;
+                padding: 22px 10px;
               }
             }
           }
@@ -250,9 +260,9 @@
     .add-question {
       display: flex;
       gap: 20px;
+      margin-top: 24px;
       font-size: 15px;
       font-weight: 600;
-      letter-spacing: -0.09px;
     }
   }
 }

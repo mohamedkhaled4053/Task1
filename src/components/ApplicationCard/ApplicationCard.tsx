@@ -79,14 +79,15 @@ const ApplicationCard = ({
                   key={field.key}
                   field={field}
                   name={questionFormItemName}
+                  remove={remove}
                 />
               ))}
 
-              <Form.Item>
+
                 <div className="add-question">
                   <Icon name="add" width={25} /> Add a question
                 </div>
-              </Form.Item>
+
             </>
           )}
         </Form.List>

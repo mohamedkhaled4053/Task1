@@ -40,8 +40,11 @@ export let mockData: ApplicationForm = {
           },
           {
             id: "49hgfgdfsa7f6eca-276-4993-bfeb-53cbbbba6f08",
-            type: "File upload",
+            type: "Video question",
             question: "what is your age",
+            additionalInformation:'this is additional informations',
+            duration:4,
+            durationUnit:'minutes',
             choices: ["string"],
             maxChoice: 0,
             disqualify: false,

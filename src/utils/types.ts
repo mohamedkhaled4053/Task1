@@ -15,6 +15,9 @@ export type applicationQuestion = {
   id: string;
   type: questionType;
   question: string;
+  additionalInformation?: string;
+  duration?: number;
+  durationUnit?: "minutes" | "seconds";
   choices: string[];
   maxChoice: number;
   disqualify: boolean;
