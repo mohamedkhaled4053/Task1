@@ -1,15 +1,15 @@
 import { ApplicationForm } from "./types";
 
 export const questionTypes = [
-  "Paragraph",
-  "Short answer",
-  "Yes/No",
-  "Dropdown",
-  "Multiple choice",
-  "Date",
-  "Number",
-  "File upload",
-  "Video question",
+  { label: "Paragraph", value: "Paragraph" },
+  { label: "Short answer", value: "ShortAnswer" },
+  { label: "Yes/No", value: "YesNo" },
+  { label: "Dropdown", value: "Dropdown" },
+  { label: "Multiple choice", value: "MultipleChoice" },
+  { label: "Date", value: "Date" },
+  { label: "Number", value: "Number" },
+  { label: "File upload", value: "FileUpload" },
+  { label: "Video question", value: "Video question" },
 ] as const;
 
 export let mockData: ApplicationForm = {
@@ -31,9 +31,9 @@ export let mockData: ApplicationForm = {
         personalQuestions: [
           {
             id: "497fgfsgajhgh6eca-276-4993-bfeb-53cbbbba6f08",
-            type: "Multiple choice",
+            type: "MultipleChoice",
             question: "how are you",
-            choices: ["string","love",'hate'],
+            choices: ["good", "fine", "happy", "sad"],
             maxChoice: 0,
             disqualify: false,
             other: false,
@@ -42,9 +42,9 @@ export let mockData: ApplicationForm = {
             id: "49hgfgdfsa7f6eca-276-4993-bfeb-53cbbbba6f08",
             type: "Video question",
             question: "what is your age",
-            additionalInformation:'this is additional informations',
-            duration:4,
-            durationUnit:'minutes',
+            additionalInformation: "this is additional informations",
+            duration: 4,
+            durationUnit: "minutes",
             choices: ["string"],
             maxChoice: 0,
             disqualify: false,
@@ -61,7 +61,7 @@ export let mockData: ApplicationForm = {
           },
           {
             id: "497f6eca-276-4993-bfeb-53cbbbbgfafdsaa6f08",
-            type: "Multiple choice",
+            type: "MultipleChoice",
             question: "but bad",
             choices: ["string"],
             maxChoice: 0,
@@ -70,7 +70,7 @@ export let mockData: ApplicationForm = {
           },
           {
             id: "4fdsaf97f6eca-276-4993-bfeb-53cbbbba6f08",
-            type: "Yes/No",
+            type: "YesNo",
             question: "how are you",
             choices: ["string"],
             maxChoice: 0,

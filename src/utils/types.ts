@@ -9,7 +9,7 @@ export interface MandatoryAndShow {
   show: boolean;
 }
 
-export type questionType = (typeof questionTypes)[number];
+export type questionType = (typeof questionTypes)[number]["value"];
 
 export type applicationQuestion = {
   id: string;

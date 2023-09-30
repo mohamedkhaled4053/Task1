@@ -8,3 +8,11 @@
     width: 595px;
   }
 }
+.loading,
+.error {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+}

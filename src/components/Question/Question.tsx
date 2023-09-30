@@ -4,7 +4,7 @@ import { ImgIcon } from "../Icon/ImgIcon";
 import { Icon } from "../Icon/Icon";
 import { questionTypes } from "../../utils/mock";
 import { applicationQuestion } from "../../utils/types";
-import './style.scss'
+import "./style.scss";
 
 type Props = {
   field: FormListFieldData;
@@ -51,10 +51,10 @@ const Question = ({ field, name, remove }: Props) => {
                     >
                       {questionTypes.map((questionType) => (
                         <Select.Option
-                          key={field.key + questionType}
-                          value={questionType}
+                          key={field.key + questionType.value}
+                          value={questionType.value}
                         >
-                          {questionType}
+                          {questionType.label}
                         </Select.Option>
                       ))}
                     </Select>
@@ -62,13 +62,13 @@ const Question = ({ field, name, remove }: Props) => {
                   <Form.Item label="Question" name={[field.name, "question"]}>
                     <Input placeholder="Type here" />
                   </Form.Item>
-                  {type === "Multiple choice" && (
+                  {type === "MultipleChoice" && (
                     <>
                       <Form.List name={[field.name, "choices"]}>
                         {(choicesFields, { add, remove }) => (
                           <div className="choice-inputs">
                             {choicesFields.map((choiceField, index) => (
-                              <>
+                              <React.Fragment key={choiceField.key}>
                                 {index === 0 && (
                                   <p className="choice-label">Choice</p>
                                 )}
@@ -90,7 +90,7 @@ const Question = ({ field, name, remove }: Props) => {
                                     onClick={() => add()}
                                   />
                                 </div>
-                              </>
+                              </React.Fragment>
                             ))}
                           </div>
                         )}
