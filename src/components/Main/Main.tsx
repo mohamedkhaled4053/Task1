@@ -10,6 +10,8 @@ import ImageCard from "../ImageCard/ImageCard";
 const Main = () => {
   let [FormData, setFormData] = useState<ApplicationForm>(mockData);
 
+  const [form] = Form.useForm();
+
   const handleFormChange = (changedValues: any, values: any) => {
     console.log(changedValues);
     console.log(values);
@@ -20,7 +22,7 @@ const Main = () => {
   return (
     <div className="main">
       <Navbar />
-      <Form initialValues={data} onValuesChange={handleFormChange}>
+      <Form form={form} initialValues={data} onValuesChange={handleFormChange}>
         <ImageCard coverImage={data.coverImage} />
 
         <ApplicationCard

@@ -15,6 +15,7 @@ const Question = ({ field, name, remove }: Props) => {
   let [isEdit, setIsEdit] = useState(false);
   let [isNew, setIsNew] = useState(false);
 
+  let form = Form.useFormInstance();
   return (
     <Form.Item shouldUpdate style={{ marginBottom: 0 }}>
       {({ getFieldValue }) => {
@@ -26,8 +27,12 @@ const Question = ({ field, name, remove }: Props) => {
         let type = questionData?.type;
         let displayQuestionFrom = isNew || isEdit;
 
-        if (!questionData?.id) {
+        if (!questionData) {
           setIsNew(true);
+        }
+
+        function handleTypeChange(value: string) {
+          form.setFieldValue([...name, field.name, "choices"], [""]);
         }
 
         return (
@@ -39,7 +44,10 @@ const Question = ({ field, name, remove }: Props) => {
               <div className="question-body">
                 <>
                   <Form.Item label="Type" name={[field.name, "type"]}>
-                    <Select suffixIcon={<Icon name="arrow" />}>
+                    <Select
+                      onChange={handleTypeChange}
+                      suffixIcon={<Icon name="arrow" />}
+                    >
                       {questionTypes.map((questionType) => (
                         <Select.Option
                           key={field.key + questionType}
