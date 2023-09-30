@@ -1,6 +1,6 @@
 import { Form, FormListFieldData } from "antd";
 import React from "react";
-import { applicationQuestion } from "../utils/types";
+import { applicationQuestion } from "../../utils/types";
 import { ImgIcon } from "../Icon/ImgIcon";
 
 type Props = { field: FormListFieldData; name: string[] };

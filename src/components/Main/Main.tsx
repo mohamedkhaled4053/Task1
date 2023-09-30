@@ -1,10 +1,10 @@
 import "./style.scss";
 import Navbar from "../Navbar/Navbar";
-import { mockData } from "../utils/mock";
+import { mockData } from "../../utils/mock";
 import { useState } from "react";
 import { Form } from "antd";
 import ApplicationCard from "../ApplicationCard/ApplicationCard";
-import { ApplicationForm } from "../utils/types";
+import { ApplicationForm } from "../../utils/types";
 import ImageCard from "../ImageCard/ImageCard";
 
 const Main = () => {

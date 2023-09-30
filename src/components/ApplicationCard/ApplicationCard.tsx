@@ -2,7 +2,7 @@ import React from "react";
 import "./style.scss";
 import { Form, Checkbox, Switch } from "antd";
 import { Icon } from "../Icon/Icon";
-import { ApplicationForm } from "../utils/types";
+import { ApplicationForm } from "../../utils/types";
 import Question from "../Question/Question";
 
 type Props = {
