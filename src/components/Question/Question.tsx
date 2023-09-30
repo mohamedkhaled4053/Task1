@@ -26,7 +26,7 @@ const Question = ({ field, name, remove }: Props) => {
         let type = questionData?.type;
         let displayQuestionFrom = isNew || isEdit;
 
-        if (!questionData) {
+        if (!questionData?.id) {
           setIsNew(true);
         }
 
@@ -54,11 +54,39 @@ const Question = ({ field, name, remove }: Props) => {
                     <Input placeholder="Type here" />
                   </Form.Item>
                   {type === "Multiple choice" && (
-                    <Form.Item label="Choise">
-                      <Icon name="unorderedList" className="unorderedList" />
-                      <Input placeholder="Type here" />
-                      <Icon name="add" width={13} className="add" />
-                    </Form.Item>
+                    <>
+                      <Form.List name={[field.name, "choices"]}>
+                        {(choicesFields, { add, remove }) => (
+                          <div className="choice-inputs">
+                            {choicesFields.map((choiceField, index) => (
+                              <>
+                                {index === 0 && (
+                                  <p className="choice-label">Choice</p>
+                                )}
+                                <div className="choice-input">
+                                  <Icon
+                                    name="unorderedList"
+                                    className="unorderedList"
+                                  />
+                                  <Form.Item
+                                    key={choiceField.key}
+                                    name={[choiceField.name]}
+                                  >
+                                    <Input placeholder="Type here" />
+                                  </Form.Item>
+                                  <Icon
+                                    name="add"
+                                    width={13}
+                                    className="add-choice"
+                                    onClick={() => add()}
+                                  />
+                                </div>
+                              </>
+                            ))}
+                          </div>
+                        )}
+                      </Form.List>
+                    </>
                   )}
                   {type === "Video question" && (
                     <>

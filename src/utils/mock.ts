@@ -31,9 +31,9 @@ export let mockData: ApplicationForm = {
         personalQuestions: [
           {
             id: "497fgfsgajhgh6eca-276-4993-bfeb-53cbbbba6f08",
-            type: "Paragraph",
+            type: "Multiple choice",
             question: "how are you",
-            choices: ["string"],
+            choices: ["string","love",'hate'],
             maxChoice: 0,
             disqualify: false,
             other: false,

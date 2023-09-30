@@ -149,12 +149,6 @@
                 flex-direction: row;
                 align-items: center;
               }
-              svg.unorderedList {
-                margin-right: 7px;
-              }
-              svg.add {
-                margin-left: 16px;
-              }
               .ant-form-item-label {
                 align-self: flex-start;
                 label {
@@ -208,7 +202,7 @@
                 padding: 17px 5px;
                 border-color: black;
                 box-shadow: none;
-                .ant-input-number-handler-wrap{
+                .ant-input-number-handler-wrap {
                   display: none;
                 }
               }
@@ -219,6 +213,7 @@
               }
             }
           }
+
           .video-duration {
             display: flex;
             gap: 10px;
@@ -228,6 +223,35 @@
             .duration-unit {
               flex: 1;
             }
+          }
+
+          .choice-input {
+            display: flex;
+            align-items: center;
+            .ant-form-item {
+              width: 100%;
+            }
+            svg {
+              margin-bottom: 20px;
+              &.unorderedList {
+                margin-right: 7px;
+              }
+              &.add-choice {
+                display: none;
+              }
+            }
+            &:last-of-type {
+              svg.add-choice {
+                display: unset;
+                margin-left: 16px;
+              }
+            }
+          }
+
+          .choice-label {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 8px;
           }
 
           .question-form-buttons {

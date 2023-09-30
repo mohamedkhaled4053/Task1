@@ -69,7 +69,7 @@ const ApplicationCard = ({
             })}
           </div>
         )}
-        
+
         {/* questions */}
         <Form.List name={questionFormItemName}>
           {(fields, { add, remove }) => (
@@ -83,10 +83,12 @@ const ApplicationCard = ({
                 />
               ))}
 
-                <div className="add-question" onClick={()=>add()}>
-                  <Icon name="add" width={25} /> Add a question
-                </div>
-
+              <div
+                className="add-question"
+                onClick={() => add({ choices: [""] })}
+              >
+                <Icon name="add" width={25} /> Add a question
+              </div>
             </>
           )}
         </Form.List>
