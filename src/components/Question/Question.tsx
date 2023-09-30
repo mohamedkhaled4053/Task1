@@ -3,7 +3,6 @@ import {
   Form,
   FormListFieldData,
   Input,
-  InputNumber,
   Select,
 } from "antd";
 import React, { useState } from "react";
@@ -12,6 +11,8 @@ import { Icon } from "../Icon/Icon";
 import { questionTypes } from "../../utils/mock";
 import { applicationQuestion } from "../../utils/types";
 import "./style.scss";
+import Choices from "./Choices";
+import VideoInputs from "./VideoInputs";
 
 type Props = {
   field: FormListFieldData;
@@ -72,93 +73,10 @@ const Question = ({ field, name, remove }: Props) => {
                   </Form.Item>
 
                   {(type === "MultipleChoice" || type === "Dropdown") && (
-                    <>
-                      <Form.List name={[field.name, "choices"]}>
-                        {(choicesFields, { add, remove }) => (
-                          <div className="choice-inputs">
-                            {choicesFields.map((choiceField, index) => (
-                              <React.Fragment key={choiceField.key}>
-                                {index === 0 && (
-                                  <p className="choice-label">Choice</p>
-                                )}
-                                <div className="choice-input">
-                                  <Icon
-                                    name="unorderedList"
-                                    className="unorderedList"
-                                  />
-                                  <Form.Item
-                                    key={choiceField.key}
-                                    name={[choiceField.name]}
-                                  >
-                                    <Input placeholder="Type here" />
-                                  </Form.Item>
-                                  <Icon
-                                    name="add"
-                                    width={13}
-                                    className="add-choice"
-                                    onClick={() => add()}
-                                  />
-                                </div>
-                              </React.Fragment>
-                            ))}
-                          </div>
-                        )}
-                      </Form.List>
-
-                      <Form.Item
-                        valuePropName="checked"
-                        name={[field.name, "other"]}
-                        style={{ marginBottom: "50px" }}
-                      >
-                        <Checkbox>Enable “Other” option</Checkbox>
-                      </Form.Item>
-
-                      {type === "MultipleChoice" && (
-                        <Form.Item
-                          label="Max choice allowed"
-                          name={[field.name, "maxChoice"]}
-                        >
-                          <InputNumber placeholder="Enter number of choice allowed here" />
-                        </Form.Item>
-                      )}
-                    </>
+                    <Choices field={field} type={type} />
                   )}
-                  {type === "Video question" && (
-                    <>
-                      <Form.Item name={[field.name, "additionalInformation"]}>
-                        <Input.TextArea placeholder="additional information" />
-                      </Form.Item>
 
-                      <div className="video-duration">
-                        <Form.Item
-                          className="duration"
-                          name={[field.name, "duration"]}
-                        >
-                          <InputNumber
-                            min={0}
-                            placeholder="Max duration of video"
-                          />
-                        </Form.Item>
-
-                        <Form.Item
-                          className="duration-unit"
-                          name={[field.name, "durationUnit"]}
-                        >
-                          <Select
-                            placeholder="in (sec/min)"
-                            suffixIcon={<Icon name="arrow" />}
-                          >
-                            <Select.Option value="minutes">
-                              minutes
-                            </Select.Option>
-                            <Select.Option value="seconds">
-                              seconds
-                            </Select.Option>
-                          </Select>
-                        </Form.Item>
-                      </div>
-                    </>
-                  )}
+                  {type === "Video question" && <VideoInputs field={field} />}
 
                   {type === "YesNo" && (
                     <Form.Item
