@@ -8,16 +8,20 @@ import { ApplicationForm } from "../../utils/types";
 import ImageCard from "../ImageCard/ImageCard";
 
 const Main = () => {
-  let [FormData, setFormData] = useState<ApplicationForm>(mockData);
+  let [formData, setFormData] = useState<ApplicationForm>(mockData);
 
   const [form] = Form.useForm();
 
   const handleFormChange = (changedValues: any, values: any) => {
     console.log(changedValues);
     console.log(values);
+    setFormData({
+      ...formData,
+      data: { ...formData.data, attributes: values },
+    });
   };
 
-  let data = FormData.data.attributes;
+  let data = formData.data.attributes;
 
   return (
     <div className="main">

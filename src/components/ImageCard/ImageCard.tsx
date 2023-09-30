@@ -1,22 +1,23 @@
 import React from "react";
 import { Form, Upload } from "antd";
 import { ImgIcon } from "../Icon/ImgIcon";
+import { Icon } from "../Icon/Icon";
 
 type Props = {
-  coverImage:string
+  coverImage: string;
 };
 
 const ImageCard = ({ coverImage }: Props) => {
   return (
     <div className="card upload">
       <div className="card-header">Upload cover image</div>
-      <div className="card-body">
-        {coverImage.includes("example") && (
+      {!coverImage || coverImage === "http://example.com" ? (
+        <div className="card-body">
           <Form.Item name="coverImage">
             <Upload.Dragger
               name="file"
               multiple={true}
-              action="http://example.com/"
+              action="http://example.com/" // upload endpoint
               fileList={[]}
             >
               <p className="ant-upload-drag-icon">
@@ -28,8 +29,25 @@ const ImageCard = ({ coverImage }: Props) => {
               </p>
             </Upload.Dragger>
           </Form.Item>
-        )}
-      </div>
+        </div>
+      ) : (
+        <div>
+          <img
+            className="cover-image"
+            alt="not found"
+            width={"250px"}
+            src={coverImage}
+          />
+          <p
+            className="cover-image-delete"
+            onClick={() =>
+              console.log("api endpoint call for deleting the cover image")
+            }
+          >
+            <Icon name="close" /> Delete & re-upload
+          </p>
+        </div>
+      )}
     </div>
   );
 };
