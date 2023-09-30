@@ -18,10 +18,10 @@ export type applicationQuestion = {
   additionalInformation?: string;
   duration?: number;
   durationUnit?: "minutes" | "seconds";
-  choices: string[];
-  maxChoice: number;
-  disqualify: boolean;
-  other: boolean;
+  choices?: string[];
+  maxChoice?: number;
+  disqualify?: boolean;
+  other?: boolean;
 };
 
 export interface ApplicationForm {

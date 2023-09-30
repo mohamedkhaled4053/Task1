@@ -13,6 +13,7 @@ type Props = {
 
 const Question = ({ field, name, remove }: Props) => {
   let [isEdit, setIsEdit] = useState(false);
+  let [isNew, setIsNew] = useState(false);
 
   return (
     <Form.Item shouldUpdate style={{ marginBottom: 0 }}>
@@ -22,18 +23,26 @@ const Question = ({ field, name, remove }: Props) => {
           field.name,
         ]);
 
-        let { id, question, type } = questionData;
+        let type = questionData?.type;
+        let displayQuestionFrom = isNew || isEdit;
+
+        if (!questionData) {
+          setIsNew(true);
+        }
 
         return (
-          <div key={id} className={`question ${isEdit ? "form" : ""}`}>
-            {isEdit ? (
+          <div
+            key={field.key}
+            className={`question ${displayQuestionFrom ? "form" : ""}`}
+          >
+            {displayQuestionFrom ? (
               <div className="question-body">
                 <>
                   <Form.Item label="Type" name={[field.name, "type"]}>
                     <Select suffixIcon={<Icon name="arrow" />}>
                       {questionTypes.map((questionType) => (
                         <Select.Option
-                          key={id + questionType}
+                          key={field.key + questionType}
                           value={questionType}
                         >
                           {questionType}
@@ -94,7 +103,10 @@ const Question = ({ field, name, remove }: Props) => {
                     </span>
                     <span
                       className="question-form-button save"
-                      onClick={() => setIsEdit(false)}
+                      onClick={() => {
+                        setIsEdit(false);
+                        setIsNew(false);
+                      }}
                     >
                       Save
                     </span>
@@ -105,7 +117,7 @@ const Question = ({ field, name, remove }: Props) => {
               <>
                 <div className="question-body">
                   <div className="question-type">{type}</div>
-                  <p className="title">{question}</p>
+                  <p className="title">{questionData?.question}</p>
                 </div>
                 <ImgIcon
                   className="edit-icon"
