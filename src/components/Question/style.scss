@@ -69,15 +69,18 @@
             .ant-input {
               border-color: black;
               box-shadow: none;
+              padding-left: 26px;
               :hover {
                 background-color: #087b2f;
               }
             }
             .ant-input-number {
               width: 100%;
-              padding: 17px 5px;
               border-color: black;
               box-shadow: none;
+              input {
+                padding: 22px 26px;
+              }
               .ant-input-number-handler-wrap {
                 display: none;
               }
@@ -85,7 +88,7 @@
 
             textarea {
               display: flex;
-              padding: 22px 10px;
+              padding: 22px 26px;
             }
           }
         }

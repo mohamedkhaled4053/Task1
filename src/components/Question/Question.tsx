@@ -1,4 +1,11 @@
-import { Form, FormListFieldData, Input, InputNumber, Select } from "antd";
+import {
+  Checkbox,
+  Form,
+  FormListFieldData,
+  Input,
+  InputNumber,
+  Select,
+} from "antd";
 import React, { useState } from "react";
 import { ImgIcon } from "../Icon/ImgIcon";
 import { Icon } from "../Icon/Icon";
@@ -59,10 +66,12 @@ const Question = ({ field, name, remove }: Props) => {
                       ))}
                     </Select>
                   </Form.Item>
+
                   <Form.Item label="Question" name={[field.name, "question"]}>
                     <Input placeholder="Type here" />
                   </Form.Item>
-                  {type === "MultipleChoice" && (
+
+                  {(type === "MultipleChoice" || type === "Dropdown") && (
                     <>
                       <Form.List name={[field.name, "choices"]}>
                         {(choicesFields, { add, remove }) => (
@@ -95,6 +104,23 @@ const Question = ({ field, name, remove }: Props) => {
                           </div>
                         )}
                       </Form.List>
+
+                      <Form.Item
+                        valuePropName="checked"
+                        name={[field.name, "other"]}
+                        style={{ marginBottom: "50px" }}
+                      >
+                        <Checkbox>Enable “Other” option</Checkbox>
+                      </Form.Item>
+
+                      {type === "MultipleChoice" && (
+                        <Form.Item
+                          label="Max choice allowed"
+                          name={[field.name, "maxChoice"]}
+                        >
+                          <InputNumber placeholder="Enter number of choice allowed here" />
+                        </Form.Item>
+                      )}
                     </>
                   )}
                   {type === "Video question" && (
@@ -102,6 +128,7 @@ const Question = ({ field, name, remove }: Props) => {
                       <Form.Item name={[field.name, "additionalInformation"]}>
                         <Input.TextArea placeholder="additional information" />
                       </Form.Item>
+
                       <div className="video-duration">
                         <Form.Item
                           className="duration"
@@ -112,6 +139,7 @@ const Question = ({ field, name, remove }: Props) => {
                             placeholder="Max duration of video"
                           />
                         </Form.Item>
+
                         <Form.Item
                           className="duration-unit"
                           name={[field.name, "durationUnit"]}
@@ -131,6 +159,18 @@ const Question = ({ field, name, remove }: Props) => {
                       </div>
                     </>
                   )}
+
+                  {type === "YesNo" && (
+                    <Form.Item
+                      valuePropName="checked"
+                      name={[field.name, "disqualify"]}
+                    >
+                      <Checkbox>
+                        Disqualify candidate if the answer is no
+                      </Checkbox>
+                    </Form.Item>
+                  )}
+
                   <div className="question-form-buttons">
                     <span
                       className="question-form-button delete"
