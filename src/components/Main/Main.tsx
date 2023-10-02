@@ -5,6 +5,7 @@ import { Form } from "antd";
 import ApplicationCard from "../ApplicationCard/ApplicationCard";
 import { ApplicationForm } from "../../utils/types";
 import ImageCard from "../ImageCard/ImageCard";
+import { mockData } from "../../utils/mock";
 
 const Main = () => {
   let [formData, setFormData] = useState<ApplicationForm>();
@@ -50,6 +51,7 @@ const Main = () => {
         form.setFieldsValue(formData.data.attributes);
       } catch (error) {
         console.log(error);
+        setFormData(mockData);
         setError(true);
       } finally {
         setLoading(false);
@@ -60,13 +62,17 @@ const Main = () => {
   }, []);
 
   if (loading) return <div className="loading">Loading...</div>;
-  if (error || !formData)
-    return <div className="error">failed to get the form</div>;
+  if (!formData) return <div className="error">failed to get the form</div>;
 
   let data = formData!.data.attributes;
 
   return (
     <div className="main">
+      {error && (
+        <div className="api-error">
+          failed to get the data from the API ... the following is mock data
+        </div>
+      )}
       <Navbar />
       <Form form={form} initialValues={data} onValuesChange={handleFormChange}>
         <ImageCard coverImage={data.coverImage} />

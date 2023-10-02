@@ -53,7 +53,7 @@ export let mockData: ApplicationForm = {
           {
             id: "497f6eca-276-4993-bfeb-53cbbbfdsasafdaba6f08",
             type: "Date",
-            question: "I'm good",
+            question: "date of birth",
             choices: ["string"],
             maxChoice: 0,
             disqualify: false,
@@ -62,7 +62,7 @@ export let mockData: ApplicationForm = {
           {
             id: "497f6eca-276-4993-bfeb-53cbbbbgfafdsaa6f08",
             type: "MultipleChoice",
-            question: "but bad",
+            question: "what is your hoppy",
             choices: ["string"],
             maxChoice: 0,
             disqualify: false,
@@ -71,7 +71,7 @@ export let mockData: ApplicationForm = {
           {
             id: "4fdsaf97f6eca-276-4993-bfeb-53cbbbba6f08",
             type: "YesNo",
-            question: "how are you",
+            question: "are you graduated",
             choices: ["string"],
             maxChoice: 0,
             disqualify: false,
@@ -105,7 +105,7 @@ export let mockData: ApplicationForm = {
           {
             id: "497f6eca-dfadslfdsafdkdash-4993-bfeb-53cbbbba608",
             type: "Paragraph",
-            question: "stggggggggring",
+            question: "string",
             choices: ["string"],
             maxChoice: 0,
             disqualify: false,
@@ -180,7 +180,7 @@ export let mockData: ApplicationForm = {
         {
           id: "497f6eca-6276-4993-bfeb-5fdsafsa3cbbbbadsafdsa6f08",
           type: "Paragraph",
-          question: "stringdddddddddddddd",
+          question: "string",
           choices: ["string"],
           maxChoice: 0,
           disqualify: false,
